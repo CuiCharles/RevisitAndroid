@@ -9,12 +9,15 @@ import android.widget.ListView;
 import com.example.revisitandroid.adapter.DevTestAdapter;
 import com.example.revisitandroid.bean.DemoListBean;
 import com.example.revisitandroid.supter.BaseActivity;
+import com.example.revisitandroid.views.Custom_Systrace_Test_Activity;
+import com.example.revisitandroid.views.MMAP_Test_Activity;
 
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
 
-    public static final String MONI_LOCATION_TEST = "";
+    public static final String MMAP_TEST = "MMAP_TEST";
+    public static final String SYSTRACE_TEST = "SYSTRACE_TEST";
 
     private ArrayList<DemoListBean> mDevTestListBeans = new ArrayList<DemoListBean>();
 
@@ -36,11 +39,16 @@ public class MainActivity extends BaseActivity {
                 if (!mDevTestListBeans.isEmpty()) {
                     String itemType = mDevTestListBeans.get(position).getItemType();
                     switch (itemType) {
-                        case MONI_LOCATION_TEST: {
-
-                            
+                        case MMAP_TEST: {
+                            MMAP_Test_Activity.start(MainActivity.this);
                         }
                         break;
+
+                        case SYSTRACE_TEST:{
+                            Custom_Systrace_Test_Activity.start(MainActivity.this);
+                        }
+
+
 
                         default:
                             break;
@@ -56,16 +64,17 @@ public class MainActivity extends BaseActivity {
     private void setDataList() {
         {
             DemoListBean devTestListBean = new DemoListBean();
-            devTestListBean.setItemType(MONI_LOCATION_TEST);
+            devTestListBean.setItemType(MMAP_TEST);
             devTestListBean.setItemName("MMAP测试");
             devTestListBean.setShowBtn(false);
             mDevTestListBeans.add(devTestListBean);
         }
 
+
         {
             DemoListBean devTestListBean = new DemoListBean();
-            devTestListBean.setItemType(MONI_LOCATION_TEST);
-            devTestListBean.setItemName("测试2");
+            devTestListBean.setItemType(SYSTRACE_TEST);
+            devTestListBean.setItemName("Systrace测试");
             devTestListBean.setShowBtn(false);
             mDevTestListBeans.add(devTestListBean);
         }

@@ -20,6 +20,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".views.MMAP_Test_Activity">
+
+        </activity>
+        <activity android:name=".views.Custom_Systrace_Test_Activity">
+
+        </activity>
     </application>
 
 </manifest>
